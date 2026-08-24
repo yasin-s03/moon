@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-rp-dark text-rp-light antialiased selection:bg-rp-primary selection:text-rp-dark;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-rp-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-rp-border rounded-full transition-colors;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-rp-primary;
+  }
+}
