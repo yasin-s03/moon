@@ -2,16 +2,12 @@ import { ref} from 'vue'
 
 export const userShoppingStore = defineStore('shopping',{
  state: () => ({
-    sum : 0,
-    
-    shopArray : reactive([{name:'',price:0}]),
-    
+    sum : ref(0),
+    shopArray : reactive([]),
 }),
     actions:{
         addShop(item){
             this.shopArray.push(item)
-    console.log(this.shopArray);
-              
         },
         removeshop(array,item){
             this.shopArray.splice(array,1)
@@ -19,6 +15,6 @@ export const userShoppingStore = defineStore('shopping',{
         },
         sumShop(item){
            this.sum += item
-        }
+        },
     }
 })

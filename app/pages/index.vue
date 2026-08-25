@@ -31,7 +31,7 @@
             <a href="vmp://connect/moonlight.ir" class="flex items-center gap-2 bg-rp-primary text-rp-dark px-8 py-3.5 rounded-xl font-extrabold text-base transition-all transform hover:scale-105 shadow-glow-primary">
               شروع بازی (Connect)
             </a>
-            <NuxtLink to="/black-market" class="bg-rp-card text-rp-light border border-rp-border px-8 py-3.5 rounded-xl font-bold text-base transition-all hover:border-rp-primary/50">
+            <NuxtLink to="/PageView" class="bg-rp-card text-rp-light border border-rp-border px-8 py-3.5 rounded-xl font-bold text-base transition-all hover:border-rp-primary/50">
               فروشگاه و بازار سیاه
             </NuxtLink>
           </div>

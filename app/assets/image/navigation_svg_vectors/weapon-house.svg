@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Weapon House">
+  <title>Weapon House</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="72%">
+      <stop offset="0%" stop-color="#17233a"/>
+      <stop offset="100%" stop-color="#050912"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff1a6"/>
+      <stop offset="45%" stop-color="#f6c84a"/>
+      <stop offset="100%" stop-color="#b87912"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="128" cy="128" r="120" fill="url(#bg)" stroke="#8d6b2e" stroke-width="3"/>
+  <circle cx="128" cy="128" r="108" fill="none" stroke="#d6ad4b" stroke-opacity=".28" stroke-width="1.5"/>
+  <g fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    
+<path d="M49 91h96l24 17h38v22h-48l-25-18H93"/>
+<path d="M74 91v22M93 112l-20 35"/>
+<path d="M73 147H54"/>
+<path d="M145 108v42M145 150h-30"/>
+<path d="M175 130v20"/>
+
+  </g>
+</svg>
