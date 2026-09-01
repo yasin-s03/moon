@@ -14,7 +14,7 @@
         ورود به حساب کاربری
       </NuxtLink>
     </div>
-
+  
     <!-- داشبورد اصلی (در صورت لاگین بودن) -->
     <div v-else class="flex flex-col gap-8">
       
@@ -30,7 +30,7 @@
           <div>
             <h1 class="text-3xl font-bold text-rp-light mb-1">{{ authStore.user?.username }}</h1>
             <span class="text-rp-primary font-bold text-sm bg-rp-primary/10 px-3 py-1 rounded-full border border-rp-primary/20">
-              سطح کاربری: VIP
+              سطح کاربری: {{ authStore.user.role }}
             </span>
           </div>
         </div>

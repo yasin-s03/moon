@@ -19,11 +19,26 @@
           <NuxtLink to="/rules" class="rounded-full px-4 py-2 text-sm font-medium text-rp-muted transition-colors hover:bg-rp-primary/10 hover:text-rp-primary" active-class="bg-rp-primary/10 text-rp-primary font-bold">قوانین</NuxtLink>
           <NuxtLink to="/staff" class="rounded-full px-4 py-2 text-sm font-medium text-rp-muted transition-colors hover:bg-rp-primary/10 hover:text-rp-primary" active-class="bg-rp-primary/10 text-rp-primary font-bold">تیم استف</NuxtLink>
           <NuxtLink to="/leaders" class="rounded-full px-4 py-2 text-sm font-medium text-rp-muted transition-colors hover:bg-rp-primary/10 hover:text-rp-primary" active-class="bg-rp-primary/10 text-rp-primary font-bold">لیدر ها</NuxtLink>
-          <NuxtLink to="/admin" class="rounded-full px-4 py-2 text-sm font-medium text-rp-primary transition-colors hover:bg-rp-primary/10" active-class="bg-rp-primary/20 font-bold">پنل مدیریت</NuxtLink>
+          <NuxtLink v-if="auth.user.role === 'admin'" to="/admin" class="rounded-full px-4 py-2 text-sm font-medium text-rp-primary transition-colors hover:bg-rp-primary/10" active-class="bg-rp-primary/20 font-bold">پنل مدیریت</NuxtLink>
         </nav>
 
         <div class="flex items-center gap-3">
-          <NuxtLink to="/login" class="rounded-xl bg-rp-primary px-5 py-2.5 text-sm font-bold text-rp-dark shadow-glow-primary transition-all hover:bg-yellow-500 active:scale-95">ورود / ثبت‌نام</NuxtLink>
+          <NuxtLink v-if="!auth.user.username" to="/login" class="rounded-xl bg-rp-primary px-5 py-2.5 text-sm font-bold text-rp-dark shadow-glow-primary transition-all hover:bg-yellow-500 active:scale-95">
+           <p>
+            ورود / ثبت‌نام
+           </p>
+          </NuxtLink>
+          <div v-else class="rounded-xl bg-rp-primary px-5 py-2.5 text-sm font-bold text-rp-dark shadow-glow-primary transition-all hover:bg-yellow-500 active:scale-95">
+           <p>
+           نام کاربری {{ auth.user.username }}
+           </p>
+          </div>
+          
+           <NuxtLink v-if="auth.user.username" to="/login" v-on:click="handleExit" class="rounded-xl bg-rp-accent px-5 py-2.5 text-sm font-bold text-rp-dark shadow-glow-primary transition-all hover:bg-yellow-500 active:scale-95">
+          خروج
+          </NuxtLink>
+         
+           
         </div>
       </div>
     </header>
@@ -58,3 +73,13 @@
 
   </div>
 </template>
+
+<script setup>
+import { useAuthStore } from '~/stores/auth'
+
+const auth = useAuthStore()
+function handleExit(){
+  auth.user.username = ''
+  auth.logout
+}
+</script>

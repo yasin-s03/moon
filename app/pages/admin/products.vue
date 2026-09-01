@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto space-y-8" dir="rtl">
+  <div v-if="auth.user.role === 'admin'" class="max-w-6xl mx-auto space-y-8" dir="rtl">
     
     <!-- هدر صفحه -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-rp-card p-6 rounded-2xl border border-rp-border shadow-xl">
@@ -95,6 +95,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useAdminStore } from '~/stores/admin'
+
+const auth = useAuthStore()
 
 definePageMeta({
   layout: 'admin'

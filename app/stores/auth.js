@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    user: null,
+    user: {username:'',role:''},
     token: null, 
     isAuthenticated: false
   }),
@@ -17,13 +17,32 @@ export const useAuthStore = defineStore('auth', {
         // this.token = response.token
         // this.user = response.user
         
-        if (username && password) {
-          this.token = 'eyJhbGciOiJIUzI1NiIsInR...mock_token'
-          this.user = { username: username, role: 'vip' }
-          this.isAuthenticated = true
+        // if (username && password) {
+        //   this.token = 'eyJhbGciOiJIUzI1NiIsInR...mock_token'
+        //   this.user = { username: username, role: 'vip' }
+        //   this.isAuthenticated = true
           
+        //   localStorage.setItem('moonlight_token', this.token)
+        //   return true
+        // }
+        if (username && password) {           
+        if(username === 'admin' && password == 1234){
+          this.token = 'eyJhbGciOiJIUzI1NiIsInR...mock_token'
+          this.user = { username: username, role: 'admin' }
+          this.isAuthenticated = true
+
           localStorage.setItem('moonlight_token', this.token)
           return true
+        }else if(username !== 'admin'){
+    
+          this.token = 'eyJhbGciOiJIUzI1NiIsInR...mock_token'
+          this.user = { username: username, role: 'player' }
+          this.isAuthenticated = true
+
+          localStorage.setItem('moonlight_token', this.token)
+          return true
+        }
+          
         }
         return false
       } catch (error) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-7xl mx-auto">
+  <div v-if="auth.user.role === 'admin' " class="max-w-7xl mx-auto">
     <div class="mb-8">
       <h1 class="text-3xl font-extrabold text-rp-light mb-2">داشبورد فرماندهی</h1>
       <p class="text-rp-muted">به پنل مدیریت مون لایت خوش آمدید. از منوی سمت راست می‌توانید بخش‌ها را مدیریت کنید.</p>
@@ -21,6 +21,8 @@
 </template>
 
 <script setup>
+const auth = useAuthStore()
+
 definePageMeta({
 })
 </script>
