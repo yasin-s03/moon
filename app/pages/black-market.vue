@@ -63,14 +63,16 @@
             :price="item.price"
             :category="item.category"
             :image="item.image"
-            @buy="openpanel"
+            @buy="openPanel"
           />
         </TransitionGroup>
       </div>
     </div>
 
   </div>
-        <PanelShop :product="selectProdcut" :show="showPanel" @close="showPanel = false"/>
+        <!-- <PanelShop :product="selectProdcut" @show="showPanel" @close="showPanel = false"/> -->
+        <PanelShop v-if="showPanel" :product="selectProdcut" @close="openPanel" />
+
 </template>
 
 <script setup>
@@ -82,11 +84,15 @@ const categories = ['همه', 'سلاح گرم', 'تجهیزات نفوذ', 'م�
 const selectedCategory = ref('همه')
 const selectProdcut = ref()
 const showPanel = ref(false)
-function openpanel(item){
+function openPanel(item){
+  if(item){
   showPanel.value = true
   selectProdcut.value = item
   useshop.sumShop(item.price)
   useshop.addShop({id:0,name:item.title,price:item.price})
+  }else{
+    showPanel.value = false
+  }
 }
 
 const blackMarketItems = ref([

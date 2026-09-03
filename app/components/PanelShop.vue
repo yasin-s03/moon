@@ -1,10 +1,11 @@
 
 <template>
-    <div   class="transition-transform duration-1000 ease-in-out -translate-x-[110%]  z-50 fixed flex justify-evenly items-center flex-col w-[300px] h-[100vh] rounded-md border-white/50 left-0 top-0 text-slate-300 font-bold text-[40px] p-2 shadow-lg shadow-white
-    " :class="show ? 'translate-x-0' : '-translate-x-[110%]'" style="background:linear-gradient(0deg ,rgb(0, 3, 40), rgba(255, 255, 255, 0.1)); backdrop-filter: blur(10px);">
+    <div   class="transition-transform duration-1000 ease-in-out    z-50 fixed flex justify-evenly items-center flex-col w-[300px] h-[100vh] rounded-md border-white/50 left-0 top-0 text-slate-300 font-bold text-[40px] p-2 shadow-lg shadow-white
+    " :class="showpanel ? 'translate-x-0' : '-translate-x-[110%]'" style="background:linear-gradient(0deg ,rgb(0, 3, 40), rgba(255, 255, 255, 0.1)); backdrop-filter: blur(10px);">
+     <!-- <div   class="transition-transform duration-1000 ease-in-out translate-x-0  z-50 fixed flex justify-evenly items-center flex-col w-[300px] h-[100vh] rounded-md border-white/50 left-0 top-0 text-slate-300 font-bold text-[40px] p-2 shadow-lg shadow-white
+    "  style="background:linear-gradient(0deg ,rgb(0, 3, 40), rgba(255, 255, 255, 0.1)); backdrop-filter: blur(10px);">  -->
   
-  
-    <span v-on:click="emit('close')" class="text-red-600 left-5px top-0 text-xl mr-auto" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArklEQVR4nO3ZMQoCQQyF4VxC0bsJO28Glr3fhhVLK1G00cLjKLESL+DL8L4TzA/TJDETEXrT7rBu8Fsr89FSRxR/NPirFj9bRsCyapjvnwj4cxh8Y9kogoUiWCiChSJYKIKFIlhAESSgCBLoISJU+DUiYkyNcdWyqr2E4OdrjeN+a1lBMaSgGFJQDCkohpRiWCmGlWJYKYZVVzHT93kafrHMIiZ2ABXz6d9vEenVGwA4nQBpAgg7AAAAAElFTkSuQmCC" alt="back--v1"></span>
+    <span v-on:click="handleColse" class="text-red-600 left-5px top-0 text-xl mr-auto" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArklEQVR4nO3ZMQoCQQyF4VxC0bsJO28Glr3fhhVLK1G00cLjKLESL+DL8L4TzA/TJDETEXrT7rBu8Fsr89FSRxR/NPirFj9bRsCyapjvnwj4cxh8Y9kogoUiWCiChSJYKIKFIlhAESSgCBLoISJU+DUiYkyNcdWyqr2E4OdrjeN+a1lBMaSgGFJQDCkohpRiWCmGlWJYKYZVVzHT93kafrHMIiZ2ABXz6d9vEenVGwA4nQBpAgg7AAAAAElFTkSuQmCC" alt="back--v1"></span>
      <div class="flex justify-center items-center gap-2 p-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -36,10 +37,15 @@
 </template>
 <script setup>
 const useshopping = userShoppingStore()
-
+const emit = defineEmits(['close'])
+const showpanel = ref(true)
 defineProps({
     product:Object,
-    show:Boolean
+    // show:Boolean
 })
-const emit = defineEmits(['close'])
+
+function handleColse(){
+  emit('close',false)
+  showpanel.value = false
+}
 </script>

@@ -2,7 +2,7 @@
   <div class="container mx-auto px-6 pt-32 pb-24 min-h-screen">
     
     <!-- در صورتی که کاربر لاگین نکرده باشد -->
-    <div v-if="!authStore.isAuthenticated" class="flex flex-col items-center justify-center py-20 text-center gap-6">
+    <div  class="flex flex-col items-center justify-center py-20 text-center gap-6">
       <div class="w-24 h-24 bg-rp-card rounded-full flex items-center justify-center border border-rp-accent shadow-glow-accent">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-rp-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -16,7 +16,7 @@
     </div>
   
     <!-- داشبورد اصلی (در صورت لاگین بودن) -->
-    <div v-else class="flex flex-col gap-8">
+    <div  class="flex flex-col gap-8">
       
       <!-- هدر داشبورد و خوش‌آمدگویی -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-rp-card/50 backdrop-blur-md border border-rp-border p-8 rounded-2xl relative overflow-hidden">
@@ -100,4 +100,7 @@
 import { useAuthStore } from '~/stores/auth'
 
 const authStore = useAuthStore()
+definePageMeta({
+  middleware:'admin'
+})
 </script>

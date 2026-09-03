@@ -49,12 +49,12 @@ const props = defineProps({
   image: String
 
 })
-
 const cartStore = useCartStore()
 const toastStore = useToastStore() 
 
 const handleAddToCart = () => {
-  emit('buy',props)
+    emit('buy',props) 
+  
   const exists = cartStore.items.find(item => item.id === props.id)
   
   if (exists) {
